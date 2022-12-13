@@ -1,14 +1,15 @@
-import React from 'react'
-import 'react-bootstrap'
+import React, { useContext } from 'react'
 
-import SiteLocation from './component/siteLocation/SiteLocation';
+
+import { SiteLocation, LoadCompilation } from './component';
+import { SiteContext } from './context/Context';
 
 const App = () => {
-  
+  const [siteData, setSiteData] = useContext(SiteContext);
+  console.log(siteData)
   return (
     <div>
-      <SiteLocation  />
-      
+      {!siteData.psh ? <SiteLocation  /> : <LoadCompilation />}
     </div>
   )
 }
